@@ -15,3 +15,11 @@
 
 Choix:  -Logo design perso
 	-Materialize (theme noir bleu)
+
+
+
+
+-Création Base papier + crayon bois
+-Création Base Shemas Workbench
+-Exportation script sql
+-Execution script base dans phpmyadmin
