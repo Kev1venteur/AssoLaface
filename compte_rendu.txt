@@ -1,0 +1,17 @@
+1 ere réunion: proposition de création de site à l'asociation des artisans et commercant de froidfond (but = m'embaucher):
+	-je me présente
+	-je leur propose un site vitrine qui référencera leur entreprise respectives et les évènements qu'ils organisent gratuitement (hors coût hebergement et fqdn estimé à 3-4€ par ans, lesprix bas chez ovh) + création de logo
+	-ils acceptent
+	-je leur propose des idées de mise en forme et de logo, mais flou pour eux car pas d'exemples
+	-ils me donnent leur idées sur les logo
+	-ils me demandent de revenir le 16 mai à 20h45 avec des styles et des mise en formes (qui puissent se les représenter)
+
+2 eme reunion: plan de mon intervention: 
+	-fonctions à ajouter (but = completer la base)
+	-présentation de 4 logo
+	-présentation de mise en page et de framework/site design pour leur vision et qu'ils choisissent
+	-question de l'hébergement (prix, choix fqdn)
+	-demande des coordonnées de chaque entreprise et de photos pour chacune 
+
+Choix:  -Logo design perso
+	-Materialize (theme noir bleu)
