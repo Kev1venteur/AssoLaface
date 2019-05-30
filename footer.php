@@ -1,18 +1,8 @@
-    <footer class="page-footer  blue lighten-1">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-          </div>
-        </div>
-      </div>
+    <footer class="page-footer  blue lighten-2">
       <div class="footer-copyright">
         <div class="container">
-        © 2019 Copyright Kévin Gillet
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <a class="grey-text text-lighten-5 left" href="https://www.linkedin.com/in/k%C3%A9vin-gillet-50b25b175/">© 2019 Copyright Kévin Gillet</a>
+        <a class="grey-text text-lighten-5 right" href="https://www.froidfond.fr/">Voir la page de Froidfond</a>
         </div>
       </div>
     </footer>
