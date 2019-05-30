@@ -9,6 +9,8 @@ main {
   background: #f9f9fa;
 }
 
-.brand_face_logo {
-
+.nav-wrapper img {
+    max-height: 55px;
+    margin-top: 1px;
+    width: auto;
 }
