@@ -8,9 +8,8 @@
             <img class="brand-name-image" src="pictures/text_only.png" alt="text-logo"></img>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="">Sass  </a></li>
-            <li><a href="">Components</a></li>
-            <li><a href="">JavaScript</a></li>
+            <li><a href="">Membres</a></li>
+            <li><a href="">Calendrier</a></li>
           </ul>
         </div>
       </nav>

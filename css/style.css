@@ -22,3 +22,7 @@ main {
   max-height: 55px;
   margin-top: 1px;
 }
+
+.sidenav-trigger {
+  margin-top: 1vh;
+}
