@@ -15,6 +15,6 @@
           <li><a class="subheader">Subheader</a></li>
           <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
         </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger waves-effect waves-light btn brown lighten-2"><i class="material-icons">navigate_next</i></a>
+        <a href="index.php" data-target="slide-out" class="sidenav-trigger waves-effect waves-light btn brown lighten-2"><i class="material-icons">arrow_forward_ios</i></a>
       </main>
 <?php include 'footer.php'; ?>
