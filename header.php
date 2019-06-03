@@ -4,6 +4,7 @@
       <nav>
         <div class="nav-wrapper blue lighten-2">
           <img class="brand-logo" src="pictures/head_only.png" alt="face-logo"></img>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links"><i class="material-icons">menu</i></a>
           <a href="index.php" class="brand-logo center hide-on-med-and-down">
             <img class="brand-name-image" src="pictures/text_only.png" alt="text-logo"></img>
           </a>
@@ -13,4 +14,9 @@
           </ul>
         </div>
       </nav>
+      <ul class="sidenav" id="mobile-links">
+        <li><a href="#"><i class="material-icons">people</i>Membres</a></li>
+        <li><a href="#"><i class="material-icons">date_range</i>Calendrier</a></li>
+        <li><a href="#"><i class="material-icons">import_contacts</i>Historique</a></li>
+      </ul>
     </div>
