@@ -8,8 +8,8 @@
             <img class="brand-name-image" src="pictures/text_only.png" alt="text-logo"></img>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="">Membres</a></li>
-            <li><a href="">Calendrier</a></li>
+            <li><a href="">Membres &nbsp;&nbsp;&nbsp;<span class="material-icons">people</span></a></li>
+            <li><a href="">Calendrier &nbsp;&nbsp;&nbsp;<span class="material-icons">date_range</span></a></li>
           </ul>
         </div>
       </nav>
