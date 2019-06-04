@@ -10,7 +10,7 @@
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="">Membres &nbsp;&nbsp;&nbsp;<span class="material-icons">people</span></a></li>
-            <li><a href="">Calendrier &nbsp;&nbsp;&nbsp;<span class="material-icons">date_range</span></a></li>
+            <li><a href="">Evènements &nbsp;&nbsp;&nbsp;<span class="material-icons">date_range</span></a></li>
           </ul>
         </div>
       </nav>
