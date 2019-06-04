@@ -1,5 +1,6 @@
 <?php include 'header.php'; ?>
       <main>
+        <!--Début sidenav marron-->
         <ul id="slide-out" class="sidenav">
           <li>
             <div class="user-view">
@@ -18,27 +19,26 @@
           <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
         </ul>
         <a href="index.php" data-target="slide-out" class="sidenav-trigger waves-effect waves-light btn brown lighten-2 hoverable hide-on-med-and-down"><i class="material-icons">arrow_forward_ios</i></a>
+        <!--Fin sidenav marron et début des cartes-->
         <div class="row">
-          <div class="col s12 m6">
+          <div class="col s12 m3">
             <div class="card">
-              <div class="card-image card-small">
+              <div class="card-image">
                 <img src="photos/brand_pictures/zig-zag_1.jpg">
-                <span class="card-title">Card Title</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <span class="card-title orange-text">Zig-Zag Coiffure</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">chevron_right</i></a>
               </div>
               <div class="card-content">
                 <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col s12 m6">
+          <div class="col s12 m3">
             <div class="card">
               <div class="card-image">
                 <img src="photos/brand_pictures/symbiose_1.jpg">
-                <span class="card-title">Card Title</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <span class="card-title orange-text">Symbiose Coiffure</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">chevron_right</i></a>
               </div>
               <div class="card-content">
                 <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
