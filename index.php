@@ -25,7 +25,7 @@
             <div class="card">
               <div class="card-image">
                 <img src="photos/brand_pictures/zig-zag_1.jpg">
-                <span class="card-title orange-text">Zig-Zag Coiffure</span>
+                <span class="card-title orange-text"><b>Zig-Zag Coiffure</b></span>
                 <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">chevron_right</i></a>
               </div>
               <div class="card-content">
@@ -37,7 +37,7 @@
             <div class="card">
               <div class="card-image">
                 <img src="photos/brand_pictures/symbiose_1.jpg">
-                <span class="card-title orange-text">Symbiose Coiffure</span>
+                <span class="card-title orange-text"><b>Symbiose Coiffure</b></span>
                 <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">chevron_right</i></a>
               </div>
               <div class="card-content">
