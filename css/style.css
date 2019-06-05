@@ -39,4 +39,9 @@ main {
 .id-form {
   width: 70%;
   margin-top: 20vh;
+  margin-left: 15vw;
+}
+
+.connect-button {
+  margin-top: 2vh
 }

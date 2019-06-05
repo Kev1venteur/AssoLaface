@@ -15,7 +15,7 @@
           <li><a href="#!"><i class="material-icons">import_contacts</i>Historique Evénementiel</a></li>
           <li><div class="divider"></div></li>
           <li><a class="subheader">Administration</a></li>
-          <li><a href="/assolaface/admin/connect.php"><i class="material-icons">account_circle</i>Connexion</a></li>
+          <li><a href="/assolaface/admin/login.php"><i class="material-icons">account_circle</i>Connexion</a></li>
         </ul>
         <a href="/assolaface/index.php" data-target="slide-out" class="sidenav-trigger waves-effect waves-light btn brown lighten-2 hoverable hide-on-med-and-down"><i class="material-icons">arrow_forward_ios</i></a>
         <!--Fin sidenav marron et début des cartes-->
