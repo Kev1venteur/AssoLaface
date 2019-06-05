@@ -10,7 +10,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 include '../modal/header.php';
 ?>
       <main>
-        <a href="logout.php" class="waves-effect waves-light btn-large">Log Out</a>
+        <a href="logout.php" class="waves-effect waves-light btn-small right btn-logout red"><i class="material-icons right">account_circle</i>Déconnexion</a>
         <a class="waves-effect waves-light btn-large"><i class="material-icons left">cloud</i>button</a>
         <a class="waves-effect waves-light btn-large"><i class="material-icons right">cloud</i>button</a>
       </main>
