@@ -1,15 +1,12 @@
 <?php
-session_start();
 
-class Config {
-  const SERVEUR="localhost";
-  const BASE="assolaface";
-  const USER="assolaface";
-  const MDP="lafacefroidfond";
-}
-?>
-<?php
-$link = mysqli_connect('localhost', 'assolaface','assolaface', 'lafacefroidfond');
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'assolaface');
+define('DB_PASSWORD', 'lafacefroidfond');
+define('DB_NAME', 'assolaface');
+
+/* Attempt to connect to MySQL database */
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 // Check connection
 if($link === false){

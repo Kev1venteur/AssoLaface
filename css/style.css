@@ -35,3 +35,8 @@ main {
 .card-title {
   text-shadow: 2px 2px 4px #000000;
 }
+
+.id-form {
+  width: 70%;
+  margin-top: 20vh;
+}
