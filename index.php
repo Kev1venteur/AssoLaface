@@ -1,4 +1,4 @@
-<?php include '/assolaface/modal/header.php'; ?>
+<?php include 'modal/header.php'; ?>
       <main>
         <!--Début sidenav marron-->
         <ul id="slide-out" class="sidenav">
@@ -46,4 +46,4 @@
           </div>
         </div>
       </main>
-<?php include '/assolaface/modal/footer.php'; ?>
+<?php include 'modal/footer.php'; ?>

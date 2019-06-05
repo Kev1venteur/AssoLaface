@@ -1,4 +1,4 @@
-<?php include '../header.php'; ?>
+<?php include '../modal/header.php'; ?>
       <main>
       </main>
-<?php include '../footer.php'; ?>
+<?php include '../modal/footer.php'; ?>
