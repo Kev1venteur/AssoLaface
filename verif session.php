@@ -5,5 +5,4 @@ if(!isset($_SESSION['login'])) {
   header("Location: /assolaface/index.php");
   exit();
 }
-
 ?>
