@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password_err = "Please enter your password.";
     }
     else{
-        $password = md5(trim($_POST["password"]));
+        $password = trim($_POST["password"]);
     }
     if(empty($username_err) && empty($password_err)){
         $sql = "SELECT idUtilisateur, loginUtilisateur, passwordUtilisateur FROM utilisateur WHERE loginUtilisateur = ?";
@@ -34,6 +34,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
+                      //$e = $hash = password_hash($password, PASSWORD_DEFAULT);
+                      //var_dump($e);
                         if(password_verify($password, $hashed_password)){
                             session_start();
                             $_SESSION["loggedin"] = true;
