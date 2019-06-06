@@ -20,15 +20,15 @@ include '../modal/header.php';
           <tbody>
             <tr>
               <td>Entreprises</td>
-              <td><a class="waves-effect waves-light btn"><i class="material-icons left">settings</i>Gérer</a></td>
+              <td><a href="management/enterprise.php" class="waves-effect waves-light btn"><i class="material-icons left">settings</i>Gérer</a></td>
             </tr>
             <tr>
               <td>Evénements</td>
-              <td><a class="waves-effect waves-light btn"><i class="material-icons left">settings</i>Gérer</a></td>
+              <td><a href="management/event.php" class="waves-effect waves-light btn"><i class="material-icons left">settings</i>Gérer</a></td>
             </tr>
             <tr>
               <td>Adhérents</td>
-              <td><a class="waves-effect waves-light btn"><i class="material-icons left">settings</i>Gérer</a></td>
+              <td><a href="management/member.php" class="waves-effect waves-light btn"><i class="material-icons left">settings</i>Gérer</a></td>
             </tr>
           </tbody>
         </table>
