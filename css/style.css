@@ -49,3 +49,10 @@ main {
 .btn-logout {
   margin-top: 2vh;
 }
+
+.table-gestion {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
+}
