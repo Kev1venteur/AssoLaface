@@ -17,7 +17,7 @@
       <ul class="sidenav" id="mobile-links">
         <li><a href="/assolaface/user/page/members_view.php"><i class="material-icons">people</i>Membres</a></li>
         <li><a href="/assolaface/user/page/events_view.php"><i class="material-icons">date_range</i>Calendrier</a></li>
-        <li><a href="/assolaface/user/page/event-history_view.php"><i class="material-icons">import_contacts</i>Historique</a></li>
+        <li><a href="/assolaface/user/page/event-history_view.php"><i class="material-icons">import_contacts</i>Historique Evénementiel</a></li>
         <li><a href="/assolaface/index.php"><i class="material-icons">home</i>Accueil</a></li>
       </ul>
     </div>
