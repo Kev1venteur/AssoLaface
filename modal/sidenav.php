@@ -10,6 +10,7 @@
     </div>
   </li>
   <li><a href="/assolaface/user/page/event-history_view.php"><i class="material-icons">import_contacts</i>Historique Evénementiel</a></li>
+  <li><a href="/assolaface/index.php"><i class="material-icons">home</i>Accueil</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Administration</a></li>
   <li><a href="/assolaface/admin/login.php"><i class="material-icons">account_circle</i>Connexion - Gestion</a></li>
