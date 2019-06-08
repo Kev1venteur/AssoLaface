@@ -29,7 +29,8 @@ main {
 }
 
 .card-image > img{
-  height: 30vh;
+  height: 280px;
+  object-fit: cover;
 }
 
 .card-title {
