@@ -1,31 +1,34 @@
 <?php include 'modal/header.php'; ?>
+<?php require_once 'config/config.php';
+
+$db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
+, Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+$sql_query = "SELECT e.nomEntreprise, e.domaineEntreprise, e.descriptionEntreprise, p.nomPhoto, c.urlSiteRedirectionCarte
+FROM entreprise e JOIN photo p on p.entreprise_idEntreprise=e.idEntreprise JOIN coordonnees c on c.entreprise_idEntreprise=e.idEntreprise";
+
+$result = $db->prepare($sql_query);
+$result->execute();
+$brand = $result->fetchAll();
+?>
+
       <main>
         <?php include 'modal/sidenav.php'; ?>
         <div class="row">
+          <?php foreach ($brand as $card){ ?>
           <div class="col s12 m3">
             <div class="card">
               <div class="card-image">
-                <img src="/assolaface/photos/brand_pictures/zig-zag_1.jpg">
-                <span class="card-title orange-text"><b>Zig-Zag Coiffure</b></span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">chevron_right</i></a>
+                <img src="/assolaface/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
+                <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
+                <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
               </div>
               <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                <p><?php echo $card["descriptionEntreprise"] ?></p>
               </div>
             </div>
           </div>
-          <div class="col s12 m3">
-            <div class="card">
-              <div class="card-image">
-                <img src="/assolaface/photos/brand_pictures/symbiose_1.jpg">
-                <span class="card-title orange-text"><b>Symbiose Coiffure</b></span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">chevron_right</i></a>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
+        <?php } ?>
         </div>
       </main>
 <?php include 'modal/footer.php'; ?>

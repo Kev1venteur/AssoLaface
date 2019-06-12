@@ -1,5 +1,12 @@
 <?php
 
+class Config {
+  const DB_SERVER="localhost";
+  const DB_NAME="assolaface";
+  const DB_USERNAME="assolaface";
+  const DB_PASSWORD="lafacefroidfond";
+}
+
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'assolaface');
 define('DB_PASSWORD', 'lafacefroidfond');
