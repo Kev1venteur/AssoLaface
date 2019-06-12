@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 12 juin 2019 à 18:21
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Client :  localhost:3306
+-- Généré le :  Mer 12 Juin 2019 à 23:51
+-- Version du serveur :  5.7.26-0ubuntu0.19.04.1
+-- Version de PHP :  7.2.19-0ubuntu0.19.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `assolaface`
 --
+CREATE DATABASE IF NOT EXISTS `assolaface` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `assolaface`;
 
 -- --------------------------------------------------------
 
@@ -28,18 +28,15 @@ SET time_zone = "+00:00";
 -- Structure de la table `adherent`
 --
 
-DROP TABLE IF EXISTS `adherent`;
-CREATE TABLE IF NOT EXISTS `adherent` (
-  `idAdherent` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `adherent` (
+  `idAdherent` int(11) NOT NULL,
   `nomAdherent` varchar(60) NOT NULL,
   `prenomAdherent` varchar(60) NOT NULL,
-  `photo_idPhoto` int(11) NOT NULL,
-  PRIMARY KEY (`idAdherent`,`photo_idPhoto`),
-  KEY `fk_adherent_photo_idx` (`photo_idPhoto`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `photo_idPhoto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `adherent`
+-- Contenu de la table `adherent`
 --
 
 INSERT INTO `adherent` (`idAdherent`, `nomAdherent`, `prenomAdherent`, `photo_idPhoto`) VALUES
@@ -55,7 +52,7 @@ INSERT INTO `adherent` (`idAdherent`, `nomAdherent`, `prenomAdherent`, `photo_id
 (11, 'GAUTIER', 'Marylaure & Fabrice', 12),
 (12, 'PADIOLEAU', 'Christian', 13),
 (13, 'BIRON', 'Patrice', 14),
-(14, ' ', 'Angélina & Priscilla', 1),
+(14, 'aucun', 'Angélina & Priscilla', 1),
 (15, 'MERCERON', 'Rachel', 15),
 (16, 'NAULEAU', 'Sebastien', 16),
 (17, 'RENAUDINEAU', 'Sonia', 2),
@@ -67,22 +64,18 @@ INSERT INTO `adherent` (`idAdherent`, `nomAdherent`, `prenomAdherent`, `photo_id
 -- Structure de la table `coordonnees`
 --
 
-DROP TABLE IF EXISTS `coordonnees`;
-CREATE TABLE IF NOT EXISTS `coordonnees` (
-  `idCoordonnees` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `coordonnees` (
+  `idCoordonnees` int(11) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `tel` varchar(14) DEFAULT NULL,
   `addresse` varchar(200) DEFAULT NULL,
   `urlSiteRedirectionCarte` varchar(300) DEFAULT NULL,
   `entreprise_idEntreprise` int(11) DEFAULT NULL,
-  `adherent_idAdherent` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idCoordonnees`),
-  KEY `fk_coordonnees_entreprise1_idx` (`entreprise_idEntreprise`),
-  KEY `fk_coordonnees_adherent1_idx` (`adherent_idAdherent`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `adherent_idAdherent` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `coordonnees`
+-- Contenu de la table `coordonnees`
 --
 
 INSERT INTO `coordonnees` (`idCoordonnees`, `email`, `tel`, `addresse`, `urlSiteRedirectionCarte`, `entreprise_idEntreprise`, `adherent_idAdherent`) VALUES
@@ -110,27 +103,25 @@ INSERT INTO `coordonnees` (`idCoordonnees`, `email`, `tel`, `addresse`, `urlSite
 -- Structure de la table `entreprise`
 --
 
-DROP TABLE IF EXISTS `entreprise`;
-CREATE TABLE IF NOT EXISTS `entreprise` (
-  `idEntreprise` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `entreprise` (
+  `idEntreprise` int(11) NOT NULL,
   `nomEntreprise` varchar(100) DEFAULT NULL,
   `domaineEntreprise` varchar(100) DEFAULT NULL,
   `descriptionEntreprise` tinytext NOT NULL,
-  `nomLogoEntreprise` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`idEntreprise`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `nomLogoEntreprise` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `entreprise`
+-- Contenu de la table `entreprise`
 --
 
 INSERT INTO `entreprise` (`idEntreprise`, `nomEntreprise`, `domaineEntreprise`, `descriptionEntreprise`, `nomLogoEntreprise`) VALUES
 (1, 'Symbiose', 'Coiffure/Esthétique', 'Salon de coiffure et d’esthétique récemment installé sur Froidfond. Situé en plein centre, impossible de le manquer, de même pour votre coiffure. ', 'logo_symbiose.jpg'),
 (2, 'Zig-Zag', 'Coiffure', 'Salon implanté depuis des années dans Froidfond. Il saura avec expérience satisfaire toute vos envies.', 'logo_zig-zag.jpeg'),
-(3, 'Votre Marché', 'Alimentation', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'logo_boutemine.jpg'),
+(3, 'Votre Marché', 'Alimentation', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', 'logo_boutemine.jpg'),
 (4, 'Aloe Vera Forever', 'Beauté / Bien-être', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', NULL),
 (5, 'Bien Assis', 'Tapissier d\'Ameublement', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', 'logo_bien-assis.jpeg'),
-(6, 'Dimitri Merceron', 'Electricité', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'logo_merceron-elec.jpg'),
+(6, 'Dimitri Merceron', 'Electricité', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', 'logo_merceron-elec.jpg'),
 (7, 'Eddie Maugendre\r\n', 'Peinture', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', 'logo_eddie-peinture.jpg'),
 (8, 'Estelle Frioux', 'Coiffure à domicile', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', NULL),
 (9, 'Frédéric Barreau', 'Peinture', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.', NULL),
@@ -149,14 +140,10 @@ INSERT INTO `entreprise` (`idEntreprise`, `nomEntreprise`, `domaineEntreprise`, 
 -- Structure de la table `entreprise_gere_adherent`
 --
 
-DROP TABLE IF EXISTS `entreprise_gere_adherent`;
-CREATE TABLE IF NOT EXISTS `entreprise_gere_adherent` (
-  `entreprise_idEntreprise` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `entreprise_gere_adherent` (
+  `entreprise_idEntreprise` int(11) NOT NULL,
   `adherent_idAdherent` int(11) NOT NULL,
-  `adherent_photo_idPhoto` int(11) NOT NULL,
-  PRIMARY KEY (`entreprise_idEntreprise`,`adherent_idAdherent`,`adherent_photo_idPhoto`),
-  KEY `fk_entreprise_has_adherent_adherent1_idx` (`adherent_idAdherent`,`adherent_photo_idPhoto`),
-  KEY `fk_entreprise_has_adherent_entreprise1_idx` (`entreprise_idEntreprise`)
+  `adherent_photo_idPhoto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -165,16 +152,23 @@ CREATE TABLE IF NOT EXISTS `entreprise_gere_adherent` (
 -- Structure de la table `evenement`
 --
 
-DROP TABLE IF EXISTS `evenement`;
-CREATE TABLE IF NOT EXISTS `evenement` (
-  `idEvenement` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `evenement` (
+  `idEvenement` int(11) NOT NULL,
   `nomEvenement` varchar(100) NOT NULL,
   `dateEvenement` datetime NOT NULL,
   `lieuEvenement` varchar(100) NOT NULL,
   `prixEntreeEvenement` float NOT NULL,
-  `descriptionEvenement` text NOT NULL,
-  PRIMARY KEY (`idEvenement`)
+  `descriptionEvenement` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `evenement`
+--
+
+INSERT INTO `evenement` (`idEvenement`, `nomEvenement`, `dateEvenement`, `lieuEvenement`, `prixEntreeEvenement`, `descriptionEvenement`) VALUES
+(1, 'fin site web', '2019-06-15 00:00:00', 'place du champ de foire froidfond', 0, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley'),
+(2, 'ev 2', '2019-06-06 00:00:00', 'froidfond', 5, 'lorem ipsum'),
+(3, 'evenement 3', '2019-06-26 00:00:00', 'falleron', 45, 'lorem ipsum');
 
 -- --------------------------------------------------------
 
@@ -182,17 +176,14 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 -- Structure de la table `photo`
 --
 
-DROP TABLE IF EXISTS `photo`;
-CREATE TABLE IF NOT EXISTS `photo` (
-  `idPhoto` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `photo` (
+  `idPhoto` int(11) NOT NULL,
   `nomPhoto` varchar(200) NOT NULL,
-  `entreprise_idEntreprise` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idPhoto`),
-  KEY `fk_photo_entreprise1_idx` (`entreprise_idEntreprise`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `entreprise_idEntreprise` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `photo`
+-- Contenu de la table `photo`
 --
 
 INSERT INTO `photo` (`idPhoto`, `nomPhoto`, `entreprise_idEntreprise`) VALUES
@@ -220,23 +211,112 @@ INSERT INTO `photo` (`idPhoto`, `nomPhoto`, `entreprise_idEntreprise`) VALUES
 -- Structure de la table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `utilisateur` (
+  `idUtilisateur` int(11) NOT NULL,
   `loginUtilisateur` varchar(45) NOT NULL,
-  `passwordUtilisateur` char(60) NOT NULL,
-  PRIMARY KEY (`idUtilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `passwordUtilisateur` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Contenu de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`idUtilisateur`, `loginUtilisateur`, `passwordUtilisateur`) VALUES
 (1, 'assolaface', '$2y$10$PNaKuAQ5UbItUNszPLmLZ.O9jYMI4nJ0BQSsvbprlPZDSGTRXSxpm');
 
 --
--- Contraintes pour les tables déchargées
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `adherent`
+--
+ALTER TABLE `adherent`
+  ADD PRIMARY KEY (`idAdherent`,`photo_idPhoto`),
+  ADD KEY `fk_adherent_photo_idx` (`photo_idPhoto`);
+
+--
+-- Index pour la table `coordonnees`
+--
+ALTER TABLE `coordonnees`
+  ADD PRIMARY KEY (`idCoordonnees`),
+  ADD KEY `fk_coordonnees_entreprise1_idx` (`entreprise_idEntreprise`),
+  ADD KEY `fk_coordonnees_adherent1_idx` (`adherent_idAdherent`);
+
+--
+-- Index pour la table `entreprise`
+--
+ALTER TABLE `entreprise`
+  ADD PRIMARY KEY (`idEntreprise`);
+
+--
+-- Index pour la table `entreprise_gere_adherent`
+--
+ALTER TABLE `entreprise_gere_adherent`
+  ADD PRIMARY KEY (`entreprise_idEntreprise`,`adherent_idAdherent`,`adherent_photo_idPhoto`),
+  ADD KEY `fk_entreprise_has_adherent_adherent1_idx` (`adherent_idAdherent`,`adherent_photo_idPhoto`),
+  ADD KEY `fk_entreprise_has_adherent_entreprise1_idx` (`entreprise_idEntreprise`);
+
+--
+-- Index pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD PRIMARY KEY (`idEvenement`);
+
+--
+-- Index pour la table `photo`
+--
+ALTER TABLE `photo`
+  ADD PRIMARY KEY (`idPhoto`),
+  ADD KEY `fk_photo_entreprise1_idx` (`entreprise_idEntreprise`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`idUtilisateur`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `adherent`
+--
+ALTER TABLE `adherent`
+  MODIFY `idAdherent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT pour la table `coordonnees`
+--
+ALTER TABLE `coordonnees`
+  MODIFY `idCoordonnees` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT pour la table `entreprise`
+--
+ALTER TABLE `entreprise`
+  MODIFY `idEntreprise` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT pour la table `entreprise_gere_adherent`
+--
+ALTER TABLE `entreprise_gere_adherent`
+  MODIFY `entreprise_idEntreprise` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  MODIFY `idEvenement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `photo`
+--
+ALTER TABLE `photo`
+  MODIFY `idPhoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -264,7 +344,6 @@ ALTER TABLE `entreprise_gere_adherent`
 --
 ALTER TABLE `photo`
   ADD CONSTRAINT `fk_photo_entreprise1` FOREIGN KEY (`entreprise_idEntreprise`) REFERENCES `entreprise` (`idEntreprise`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
