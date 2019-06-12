@@ -14,7 +14,7 @@ $members = $result->fetchAll();
 
       <main>
         <?php include '../../modal/sidenav.php'; ?>
-        <table class="highlight table-gestion member-table">
+        <table class="highlight table-gestion member-table responsive-table">
           <thead>
             <tr>
               <th>Prénom</th>
