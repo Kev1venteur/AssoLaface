@@ -36,12 +36,12 @@ $members = $result->fetchAll();
               <td><?php echo $line["email"] ?></td>
               <td><?php echo $line["nomEntreprise"] ?></td>
               <td><?php echo $line["domaineEntreprise"] ?></td>
-              <td><a class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
-                  <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              <td><a href="/assolaface/admin/form/member_edit.php" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
+                  <a href="/assolaface/admin/actions/member_delete.php" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>
             <tr>
-              <td><a class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
+              <td><a href="/assolaface/admin/form/member_add.php" class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
             </tr>
           </tbody>
         </table>
