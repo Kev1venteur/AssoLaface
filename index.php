@@ -18,7 +18,7 @@ $brand = $result->fetchAll();
           <?php foreach ($brand as $card){ ?>
           <div id="modal<?php echo $card["idEntreprise"] ?>" class="modal">
            <div class="modal-content">
-             <h4>Prendre Contact</h4>
+             <h4>Prendre Rendez-vous</h4>
              <p>Tel: <?php echo $card["tel"] ?></p>
              <p>Adresse: <?php echo $card["addresse"] ?></p>
            </div>
