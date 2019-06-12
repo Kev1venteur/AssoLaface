@@ -4,7 +4,7 @@
 $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
-$sql_query = "SELECT e.nomEntreprise, e.domaineEntreprise, e.descriptionEntreprise, p.nomPhoto, c.urlSiteRedirectionCarte
+$sql_query = "SELECT e.nomEntreprise, e.idEntreprise, e.domaineEntreprise, e.descriptionEntreprise, p.nomPhoto, c.urlSiteRedirectionCarte
 FROM entreprise e JOIN photo p on p.entreprise_idEntreprise=e.idEntreprise JOIN coordonnees c on c.entreprise_idEntreprise=e.idEntreprise";
 
 $result = $db->prepare($sql_query);
@@ -21,10 +21,11 @@ $brand = $result->fetchAll();
               <div class="card-image">
                 <img src="/assolaface/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
                 <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
+                <a class="btn-floating waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">info</i></a>
                 <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
               </div>
               <div class="card-content">
-                <p><?php echo $card["descriptionEntreprise"] ?></p>
+                <p>&emsp;<?php echo $card["descriptionEntreprise"] ?></p>
               </div>
             </div>
           </div>
