@@ -11,10 +11,10 @@ include '../modal/header.php';
 ?>
       <main>
         <a href="logout.php" class="waves-effect waves-light btn-small right btn-logout red"><i class="material-icons right">account_circle</i>Déconnexion</a>
-        <table class="highlight table-gestion">
+        <table class="highlight table-gestion menu-table">
           <thead>
             <tr>
-                <th>Catégories</th>
+              <th>Catégories</th>
             </tr>
           </thead>
           <tbody>

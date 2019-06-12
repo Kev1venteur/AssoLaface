@@ -38,7 +38,7 @@ main {
 }
 
 .card-content {
-  height: auto;
+  min-height: 13vh;
 }
 
 .id-form {
@@ -55,11 +55,18 @@ main {
   margin-top: 2vh;
 }
 
-.table-gestion {
+.menu-table {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20vh;
+}
+
+.member-table {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5vh;
 }
 
 .modal-trigger {
