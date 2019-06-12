@@ -39,6 +39,10 @@ main {
   border-radius: 15px;
 }
 
+.card-content {
+  min-height: 12vh;
+}
+
 .id-form {
   width: 70%;
   margin-top: 20vh;

@@ -5,7 +5,7 @@ $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
 $sql_query = "SELECT e.nomEntreprise, e.idEntreprise, e.domaineEntreprise, e.descriptionEntreprise, p.nomPhoto, c.urlSiteRedirectionCarte, c.tel, c.addresse
-FROM entreprise e JOIN photo p on p.entreprise_idEntreprise=e.idEntreprise JOIN coordonnees c on c.entreprise_idEntreprise=e.idEntreprise";
+FROM entreprise e JOIN photo p on p.entreprise_idEntreprise=e.idEntreprise JOIN coordonnees c on c.entreprise_idEntreprise=e.idEntreprise ORDER BY RAND()";
 
 $result = $db->prepare($sql_query);
 $result->execute();
