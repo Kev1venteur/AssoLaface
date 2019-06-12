@@ -26,12 +26,12 @@ $brand = $result->fetchAll();
              <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
            </div>
          </div>
-          <div class="col s12 m3">
+          <div class="col s12 m4">
             <div class="card">
               <div class="card-image">
                 <img src="/assolaface/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
                 <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
-                <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">info</i></a>
+                <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">phone</i></a>
                 <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
               </div>
               <div class="card-content">
