@@ -8,7 +8,7 @@ $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
 $sql_query = "SELECT ev.dateEvenement, ev.descriptionEvenement, ev.nomEvenement, ev.lieuEvenement, ev.prixEntreeEvenement, ev.idEvenement
-FROM evenement ev ORDER BY ev.dateEvenement ASC";
+FROM evenement ev WHERE ev.dateEvenement > CURRENT_DATE() ORDER BY ev.dateEvenement ASC";
 
 $result = $db->prepare($sql_query);
 $result->execute();

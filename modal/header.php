@@ -10,7 +10,7 @@
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/assolaface/user/page/members_view.php">Adhérents &nbsp;&nbsp;&nbsp;<span class="material-icons">people</span></a></li>
-            <li><a href="/assolaface/user/page/events_view.php">Evénements &nbsp;&nbsp;&nbsp;<span class="material-icons">date_range</span></a></li>
+            <li><a href="/assolaface/user/page/events_view.php">Evénements à venir &nbsp;&nbsp;&nbsp;<span class="material-icons">date_range</span></a></li>
           </ul>
         </div>
       </nav>
