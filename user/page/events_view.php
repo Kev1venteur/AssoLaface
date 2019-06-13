@@ -28,7 +28,7 @@ $events = $result->fetchAll();
         <table class="highlight table-gestion member-table responsive-table">
           <thead>
             <tr>
-              <th>Date - Heure</th>
+              <th>Date</th>
               <th>Nom</th>
               <th>Lieu</th>
               <th>Prix</th>
