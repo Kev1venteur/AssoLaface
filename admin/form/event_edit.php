@@ -31,7 +31,7 @@ include '../../modal/header.php';
             <div class="row">
               <div class="input-field col s12">
                 <textarea id="event_description" class="materialize-textarea" name="evDescription"></textarea>
-                <label for="event_description">Description de l'évènement</label>
+                <label for="event_description">Description de l'évènement (ne pas oublier d'ajouter l'horaire si il y a)</label>
               </div>
             </div>
             <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="action">Valider
