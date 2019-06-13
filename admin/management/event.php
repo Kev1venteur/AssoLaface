@@ -47,7 +47,7 @@ $events = $result->fetchAll();
               <td><?php echo $line["lieuEvenement"] ?></td>
               <td><?php echo $line["prixEntreeEvenement"] ?>&nbsp;€</td>
               <td><a class="btn-floating waves-effect waves-light blue modal-trigger" href="#modal<?php echo $line["idEvenement"] ?>"><i class="material-icons">info</i></a></td>
-              <td><a href="/assolaface/admin/form/event_edit.php" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
+              <td><a href="/assolaface/admin/form/event_edit.php?idEvenement=<?php echo $line["idEvenement"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
                   <a href="/assolaface/admin/actions/event_delete.php" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>
