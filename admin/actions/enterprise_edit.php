@@ -39,7 +39,7 @@ $result_photo->bindParam(":idPhoto", $idPhoto);
 $result_coordonnees->bindParam(":email", $email);
 $result_coordonnees->bindParam(":tel", $tel);
 $result_coordonnees->bindParam(":addresse", $addresse);
-$result_coordonnees->bindParam(":urlSiteRedirectionCarte", $urlSiteRedirectionCarte);
+$result_coordonnees->bindParam(":urlSiteRedirectionCarte", $url);
 $result_coordonnees->bindParam(":idEntreprise", $idEntreprise);
 $result_coordonnees->bindParam(":idCoordonnees", $idCoordonnees);
 
