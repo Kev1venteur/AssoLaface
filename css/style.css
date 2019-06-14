@@ -75,6 +75,14 @@ main {
   margin-left: 0.5vw;
 }
 
+.image-size {
+  width: 50%;
+}
+
+.file-field {
+  padding-top: 6vh;
+}
+
 .form-container {
   width: 70%;
   margin-left: auto;

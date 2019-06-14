@@ -40,11 +40,11 @@ $brands = $result->fetch();
             <div class="row">
               <div class="input-field col s6">
                 <h6><b>Photo Actuelle</b></h6>
-                <img src="/assolaface/photos/brand_pictures/<?php echo $brands["nomPhoto"] ?>">
+                <img class="image-size" src="/assolaface/photos/brand_pictures/<?php echo $brands["nomPhoto"] ?>">
               </div>
               <div class="file-field input-field">
                 <div class="btn">
-                    <span>Imoporter une autre photo</span>
+                    <span>Importer une autre photo</span>
                     <input type="file">
                 </div>
                 <div class="file-path-wrapper">
@@ -55,11 +55,11 @@ $brands = $result->fetch();
             <div class="row">
               <div class="input-field col s6">
                 <h6><b>Logo Actuel</b></h6>
-                <img src="/assolaface/photos/brand_logos/<?php echo $brands["nomLogoEntreprise"] ?>">
+                <img class="image-size" src="/assolaface/photos/brand_logos/<?php echo $brands["nomLogoEntreprise"] ?>">
               </div>
               <div class="file-field input-field">
                 <div class="btn">
-                    <span>Imoporter un autre logo</span>
+                    <span>Importer un autre logo</span>
                     <input type="file">
                 </div>
                 <div class="file-path-wrapper">
