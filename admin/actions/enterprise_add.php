@@ -16,11 +16,11 @@ require_once '../../config/config.php';
 $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
-$sql_query_get_latest_enterprise_id = "select max(idEntreprise) from entreprise";
+$sql_query_get_latest_enterprise_id = "select max(idEntreprise) as max from entreprise";
 $get_latest_e_id = $db->prepare($sql_query_get_latest_enterprise_id);
 $get_latest_e_id->execute();
 $id = $get_latest_e_id->fetch();
-$idEntreprise = $id['idEntreprise'] + 1;
+$idEntreprise = $id["max"] + 1;
 
 $sql_query_brand = "insert entreprise set nomEntreprise=:nomEntreprise, domaineEntreprise=:domaineEntreprise, descriptionEntreprise=:descriptionEntreprise, nomLogoEntreprise=:nomLogoEntreprise";
 $sql_query_photo = "insert photo set nomPhoto=:nomPhoto, entreprise_idEntreprise=:idEntreprise";
