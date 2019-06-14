@@ -16,19 +16,14 @@ $result1 = $db->prepare($sql_query1);
 $result2 = $db->prepare($sql_query2);
 $result3 = $db->prepare($sql_query3);
 
-
-
 $result1->bindParam(":idEntreprise", $idEntreprise);
 $result2->bindParam(":idEntreprise", $idEntreprise);
-$result2->bindParam(":idEntreprise", $idEntreprise);
+$result3->bindParam(":idEntreprise", $idEntreprise);
 
-$result1->execute();
+
 $result2->execute();
 $result3->execute();
+$result1->execute();
 
-var_dump($result1);
-var_dump($result2);
-var_dump($result3);
-
-//header('Location: /assolaface/admin/management/enterprise.php');
+header('Location: /assolaface/admin/management/enterprise.php');
 ?>
