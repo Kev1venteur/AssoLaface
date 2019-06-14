@@ -46,7 +46,7 @@ $brands = $result->fetch();
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">phone</i>
-                <input id="icon_telephone" type="tel" class="validate" name="cTel" value="<?php echo $brands["tel"] ?>">
+                <input id="icon_telephone" type="tel" class="validate" name="cTel" value="<?php echo $brands["tel"] ?>" maxlength="14">
                 <label for="icon_telephone">Telephone</label>
               </div>
             </div>

@@ -23,8 +23,8 @@ $id = $get_latest_e_id->fetch();
 $idEntreprise = $id["max"] + 1;
 
 $sql_query_brand = "insert entreprise set nomEntreprise=:nomEntreprise, domaineEntreprise=:domaineEntreprise, descriptionEntreprise=:descriptionEntreprise, nomLogoEntreprise=:nomLogoEntreprise";
-$sql_query_photo = "insert photo set nomPhoto=:nomPhoto, entreprise_idEntreprise=:idEntreprise";
-$sql_query_coordonnees = "insert coordonnees set email=:email, tel=:tel, addresse=:addresse, urlSiteRedirectionCarte=:urlSiteRedirectionCarte, entreprise_idEntreprise=:idEntreprise";
+$sql_query_photo = "insert photo set entreprise_idEntreprise=:idEntreprise, nomPhoto=:nomPhoto";
+$sql_query_coordonnees = "insert coordonnees set entreprise_idEntreprise=:idEntreprise, email=:email, tel=:tel, addresse=:addresse, urlSiteRedirectionCarte=:urlSiteRedirectionCarte";
 
 $result = $db->prepare($sql_query_brand);
 $result_photo = $db->prepare($sql_query_photo);
@@ -36,13 +36,14 @@ $result->bindParam(":descriptionEntreprise", $descriptionEntreprise);
 $result->bindParam(":nomLogoEntreprise", $nomLogoEntreprise);
 
 $result_photo->bindParam(":nomPhoto", $nomPhoto);
-$result_photo->bindParam(":idEntreprise", $idEntreprise);
+$idEntreprise = (int)$idEntreprise;
+$result_photo->bindParam(":idEntreprise", $idEntreprise, PDO::PARAM_INT);
 
 $result_coordonnees->bindParam(":email", $email);
 $result_coordonnees->bindParam(":tel", $tel);
 $result_coordonnees->bindParam(":addresse", $addresse);
 $result_coordonnees->bindParam(":urlSiteRedirectionCarte", $urlSiteRedirectionCarte);
-$result_coordonnees->bindParam(":idEntreprise", $idEntreprise);
+$result_coordonnees->bindParam(":idEntreprise", $idEntreprise, PDO::PARAM_INT);
 
 $result->execute();
 $result_photo->execute();
