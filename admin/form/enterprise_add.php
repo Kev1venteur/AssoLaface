@@ -19,7 +19,32 @@ include '../../modal/header.php';
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="enterprise_description" class="materialize-textarea" name="eDescription"></textarea>
+                <input id="enterprise_address" type="text" class="validate" name="cAddresse">
+                <label for="enterprise_address">Addresse de l'entreprise</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate" name="cEmail">
+                <label for="email">Email de l'entreprise</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" class="validate" name="cTel">
+                <label for="icon_telephone">Telephone</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="enterprise_url" class="materialize-textarea" name="cUrl"></textarea>
+                <label for="enterprise_url">Url pour redirection de la carte</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="enterprise_description" class="materialize-textarea" name="eDescription" maxlength="200"></textarea>
                 <label for="enterprise_description">Description de l'entreprise</label>
               </div>
             </div>
