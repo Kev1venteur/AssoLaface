@@ -35,7 +35,7 @@ $brands = $result->fetchAll();
             </tr>
             <?php } ?>
             <tr>
-              <td><a href="/assolaface/admin/form/entreprise_add.php" class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
+              <td><a href="/assolaface/admin/form/enterprise_add.php" class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
             </tr>
           </tbody>
         </table>

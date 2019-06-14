@@ -23,18 +23,18 @@ $brands = $result->fetch();
           <form class="col s12" action="/assolaface/admin/actions/enterprise_edit.php" method="POST">
             <div class="row">
               <div class="input-field col s6">
-                <input id="event_name" type="text" class="validate" name="eName" value="<?php echo $brands['nomEntreprise'] ?>">
-                <label for="event_name">Nom de l'entreprise</label>
+                <input id="enterprise_name" type="text" class="validate" name="eName" value="<?php echo $brands['nomEntreprise'] ?>">
+                <label for="enterprise_name">Nom de l'entreprise</label>
               </div>
               <div class="input-field col s6">
-                <textarea id="event_price" class="materialize-textarea" name="eDomaine"><?php echo $brands['domaineEntreprise'] ?></textarea>
-                <label for="price">Domaine de l'entreprise</label>
+                <textarea id="enterprise_domain" class="materialize-textarea" name="eDomaine"><?php echo $brands['domaineEntreprise'] ?></textarea>
+                <label for="enterprise_domain">Domaine de l'entreprise</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="event_description" class="materialize-textarea" name="eDescription"><?php echo $brands['descriptionEntreprise'] ?></textarea>
-                <label for="event_description">Description de l'entreprise</label>
+                <textarea id="enterprise_description" class="materialize-textarea" name="eDescription"><?php echo $brands['descriptionEntreprise'] ?></textarea>
+                <label for="enterprise_description">Description de l'entreprise</label>
               </div>
             </div>
             <div class="row">

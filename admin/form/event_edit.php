@@ -28,7 +28,7 @@ $events = $result->fetch();
               </div>
               <div class="input-field col s6">
                 <textarea id="event_price" class="materialize-textarea" name="evPrice"><?php echo $events['prixEntreeEvenement'] ?></textarea>
-                <label for="price">Prix de l'évènement en €</label>
+                <label for="event_price">Prix de l'évènement en €</label>
               </div>
             </div>
             <div class="row">

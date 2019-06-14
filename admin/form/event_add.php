@@ -2,6 +2,7 @@
 include '../../modal/login_security.php';
 include '../../modal/header.php';
 ?>
+
       <main>
         <a href="../logout.php" class="waves-effect waves-light btn-small right btn-logout red"><i class="material-icons right">account_circle</i>Déconnexion</a>
         <div class="row form-container">
@@ -12,8 +13,8 @@ include '../../modal/header.php';
                 <label for="event_name">Nom de l'évènement</label>
               </div>
               <div class="input-field col s6">
-                <textarea id="price" class="materialize-textarea" name="evPrice"></textarea>
-                <label for="price">Prix de l'évènement en €</label>
+                <textarea id="event_price" class="materialize-textarea" name="evPrice"></textarea>
+                <label for="event_price">Prix de l'évènement en €</label>
               </div>
             </div>
             <div class="row">
