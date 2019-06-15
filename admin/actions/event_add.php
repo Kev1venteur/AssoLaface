@@ -12,7 +12,7 @@ require_once '../../config/config.php';
 $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
-$sql_query = "insert evenement set nomEvenement=:nomEvenement, prixEntreeEvenement=:prixEntreeEvenement, dateEvenement=:dateEvenement, lieuEvenement=:lieuEvenement, descriptionEvenement=:descriptionEvenement";
+$sql_query = "insert into evenement set nomEvenement=:nomEvenement, prixEntreeEvenement=:prixEntreeEvenement, dateEvenement=:dateEvenement, lieuEvenement=:lieuEvenement, descriptionEvenement=:descriptionEvenement";
 
 $result = $db->prepare($sql_query);
 
