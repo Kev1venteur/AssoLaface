@@ -23,29 +23,29 @@ $events = $result->fetch();
           <form class="col s12" action="/assolaface/admin/actions/event_edit.php" method="POST">
             <div class="row">
               <div class="input-field col s6">
-                <input id="event_name" type="text" class="validate" name="evName" value="<?php echo $events['nomEvenement'] ?>">
+                <input id="event_name" type="text" class="validate" required name="evName" value="<?php echo $events['nomEvenement'] ?>">
                 <label for="event_name">Nom de l'évènement</label>
               </div>
               <div class="input-field col s6">
-                <textarea id="event_price" class="materialize-textarea" name="evPrice"><?php echo $events['prixEntreeEvenement'] ?></textarea>
+                <textarea id="event_price" class="materialize-textarea" required name="evPrice"><?php echo $events['prixEntreeEvenement'] ?></textarea>
                 <label for="event_price">Prix de l'évènement en €</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input type="text" class="datepicker" name="evDate" value="<?php echo $events['dateEvenement'] ?>">
+                <input type="text" class="datepicker" name="evDate" required value="<?php echo $events['dateEvenement'] ?>">
                 <label>Date Evènement</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="event_place" class="materialize-textarea" name="evPlace"><?php echo $events['lieuEvenement'] ?></textarea>
+                <textarea id="event_place" class="materialize-textarea" required name="evPlace"><?php echo $events['lieuEvenement'] ?></textarea>
                 <label for="event_place">Lieu de l'évènement</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="event_description" class="materialize-textarea" name="evDescription"><?php echo $events['descriptionEvenement'] ?></textarea>
+                <textarea id="event_description" class="materialize-textarea" required name="evDescription"><?php echo $events['descriptionEvenement'] ?></textarea>
                 <label for="event_description">Description de l'évènement (ne pas oublier d'ajouter l'horaire si il y a)</label>
               </div>
             </div>
