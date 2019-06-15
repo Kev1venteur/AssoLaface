@@ -19,7 +19,7 @@ include '../../modal/header.php';
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="enterprise_address" type="text" class="validate" name="cAddresse">
+                <input id="enterprise_address" type="text" class="validate" required name="cAddresse">
                 <label for="enterprise_address">Addresse de l'entreprise</label>
               </div>
             </div>
