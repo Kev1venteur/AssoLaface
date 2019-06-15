@@ -42,7 +42,7 @@ $brands = $result_2->fetchAll();
             </div>
             <div class="input-field col s12">
               <select required name="aIdPhoto">
-                <option value="<?php echo $members['idEntreprise'] ?>" disabled selected><?php echo $members['nomEntreprise'] ?></option>
+                <option value="<?php echo $members['idEntreprise'] ?>" selected><?php echo $members['nomEntreprise'] ?></option>
                 <?php foreach($brands as $line){ ?>
                   <option value="<?php echo $line['idEntreprise'] ?>"><?php echo $line['nomEntreprise'] ?></option>
                 <?php } ?>
