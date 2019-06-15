@@ -52,7 +52,7 @@ include '../../modal/header.php';
               <div class="file-field input-field">
                 <div class="btn">
                     <span>Importer une photo</span>
-                    <input type="file">
+                    <input name="ePhoto" type="file">
                 </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" type="text" required name="pName" value="">
@@ -63,7 +63,7 @@ include '../../modal/header.php';
               <div class="file-field input-field">
                 <div class="btn">
                     <span>Importer un logo (facultatif)</span>
-                    <input type="file">
+                    <input name="eLogo" type="file">
                 </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" type="text" name="eLogoName">

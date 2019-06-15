@@ -70,7 +70,7 @@ $brands = $result->fetch();
               <div class="file-field input-field">
                 <div class="btn">
                     <span>Importer une autre photo</span>
-                    <input type="file">
+                    <input name="ePhoto" type="file">
                 </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" type="text" required name="pName" value="<?php echo $brands["nomPhoto"] ?>">
@@ -85,7 +85,7 @@ $brands = $result->fetch();
               <div class="file-field input-field">
                 <div class="btn">
                     <span>Importer un autre logo</span>
-                    <input type="file">
+                    <input name="eLogo" type="file">
                 </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" type="text" name="eLogoName" value="<?php echo $brands["nomLogoEntreprise"] ?>">
