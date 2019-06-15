@@ -49,6 +49,7 @@ $brands = $result_2->fetchAll();
               </select>
               <label>Entreprise de l'Adhérent</label>
             </div>
+            <input type="hidden" name="idAdherent" value="<?php echo $idAdherent ?>">
             <button class="btn waves-effect waves-light pink lighten-2" type="submit" name="action">Valider
               <i class="material-icons right">send</i>
             </button>
