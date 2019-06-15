@@ -20,7 +20,7 @@ $brands = $result->fetch();
       <main>
         <a href="../logout.php" class="waves-effect waves-light btn-small right btn-logout red"><i class="material-icons right">account_circle</i>Déconnexion</a>
         <div class="row form-container">
-          <form class="col s12" action="/assolaface/admin/actions/enterprise_edit.php" method="POST">
+          <form class="col s12" enctype="multipart/form-data" action="/assolaface/admin/actions/enterprise_edit.php" method="POST">
             <div class="row">
               <div class="input-field col s6">
                 <input id="enterprise_name" type="text" class="validate" name="eName" required value="<?php echo $brands["nomEntreprise"] ?>">
