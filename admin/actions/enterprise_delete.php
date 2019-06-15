@@ -25,5 +25,5 @@ $result2->execute();
 $result3->execute();
 $result1->execute();
 
-header('Location: /assolaface/admin/management/enterprise.php');
+header('Location: /admin/management/enterprise.php');
 ?>

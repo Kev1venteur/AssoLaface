@@ -20,5 +20,5 @@ $result->bindParam(":photo_idPhoto", $idPhoto);
 
 $result->execute();
 
-header('Location: /assolaface/admin/management/member.php');
+header('Location: /admin/management/member.php');
 ?>

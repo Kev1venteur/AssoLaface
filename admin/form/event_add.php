@@ -6,7 +6,7 @@ include '../../modal/header.php';
       <main>
         <a href="../logout.php" class="waves-effect waves-light btn-small right btn-logout red"><i class="material-icons right">account_circle</i>Déconnexion</a>
         <div class="row form-container">
-          <form class="col s12" action="/assolaface/admin/actions/event_add.php" method="POST">
+          <form class="col s12" action="/admin/actions/event_add.php" method="POST">
             <div class="row">
               <div class="input-field col s6">
                 <input id="event_name" type="text" required class="validate" name="evName">

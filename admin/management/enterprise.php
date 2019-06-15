@@ -30,12 +30,12 @@ $brands = $result->fetchAll();
             <tr>
               <td><?php echo $line["nomEntreprise"] ?></td>
               <td><?php echo $line["domaineEntreprise"] ?></td>
-              <td><a href="/assolaface/admin/form/enterprise_edit.php?idEntreprise=<?php echo $line["idEntreprise"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
-                  <a href="/assolaface/admin/actions/enterprise_delete.php?idEntreprise=<?php echo $line["idEntreprise"] ?>" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              <td><a href="/admin/form/enterprise_edit.php?idEntreprise=<?php echo $line["idEntreprise"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
+                  <a href="/admin/actions/enterprise_delete.php?idEntreprise=<?php echo $line["idEntreprise"] ?>" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>
             <tr>
-              <td><a href="/assolaface/admin/form/enterprise_add.php" class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
+              <td><a href="/admin/form/enterprise_add.php" class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
             </tr>
           </tbody>
         </table>

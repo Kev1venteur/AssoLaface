@@ -16,5 +16,5 @@ $result->bindParam(":idEvenement", $idEvenement);
 
 $result->execute();
 
-header('Location: /assolaface/admin/management/event.php');
+header('Location: /admin/management/event.php');
 ?>

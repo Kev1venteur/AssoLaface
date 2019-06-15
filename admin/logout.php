@@ -5,5 +5,5 @@ $_SESSION = array();
 
 session_destroy();
 
-header("location: /assolaface/index.php");
+header("location: /index.php");
 exit; ?>

@@ -8,9 +8,9 @@ class Config {
 }
 
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'assolaface');
-define('DB_PASSWORD', 'lafacefroidfond');
-define('DB_NAME', 'assolaface');
+define('DB_USERNAME', 'laface');
+define('DB_PASSWORD', 'Lafacefroidfond1');
+define('DB_NAME', 'laface');
 
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);

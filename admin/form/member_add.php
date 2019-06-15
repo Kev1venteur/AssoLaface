@@ -19,7 +19,7 @@ $brands = $result_2->fetchAll();
       <main>
         <a href="../logout.php" class="waves-effect waves-light btn-small right btn-logout red"><i class="material-icons right">account_circle</i>Déconnexion</a>
         <div class="row form-container">
-          <form class="col s12" action="/assolaface/admin/actions/member_add.php" method="POST">
+          <form class="col s12" action="/admin/actions/member_add.php" method="POST">
             <div class="row">
               <div class="input-field col s6">
                 <input id="last_name" type="text" class="validate" required name="aLName">

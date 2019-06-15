@@ -47,12 +47,12 @@ $events = $result->fetchAll();
               <td><?php echo $line["lieuEvenement"] ?></td>
               <td><?php echo $line["prixEntreeEvenement"] ?>&nbsp;€</td>
               <td><a class="btn-floating waves-effect waves-light blue modal-trigger" href="#modal<?php echo $line["idEvenement"] ?>"><i class="material-icons">info</i></a></td>
-              <td><a href="/assolaface/admin/form/event_edit.php?idEvenement=<?php echo $line["idEvenement"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
-                  <a href="/assolaface/admin/actions/event_delete.php?idEvenement=<?php echo $line["idEvenement"] ?>" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              <td><a href="/admin/form/event_edit.php?idEvenement=<?php echo $line["idEvenement"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
+                  <a href="/admin/actions/event_delete.php?idEvenement=<?php echo $line["idEvenement"] ?>" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>
             <tr>
-              <td><a href="/assolaface/admin/form/event_add.php" class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
+              <td><a href="/admin/form/event_add.php" class="btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a></td>
             </tr>
           </tbody>
         </table>

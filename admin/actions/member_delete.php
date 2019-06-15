@@ -16,5 +16,5 @@ $result->bindParam(":idAdherent", $idAdherent);
 
 $result->execute();
 
-header('Location: /assolaface/admin/management/member.php');
+header('Location: /admin/management/member.php');
 ?>

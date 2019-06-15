@@ -176,5 +176,5 @@ $result_coordonnees->bindParam(":idEntreprise", $idEntreprise, PDO::PARAM_INT);
 $result_photo->execute();
 $result_coordonnees->execute();
 
-header('Location: /assolaface/admin/management/enterprise.php');
+header('Location: /admin/management/enterprise.php');
 ?>
