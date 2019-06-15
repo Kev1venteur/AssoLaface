@@ -4,8 +4,6 @@ include '../../modal/login_security.php';
 $nomEntreprise = filter_input(INPUT_POST, "eName");
 $domaineEntreprise = filter_input(INPUT_POST, "eDomaine");
 $descriptionEntreprise = filter_input(INPUT_POST, "eDescription");
-$nomLogoEntreprise = filter_input(INPUT_POST, "eLogoName");
-$nomPhoto = filter_input(INPUT_POST, "pName");
 $idEntreprise = filter_input(INPUT_POST, "idEntreprise");
 $idPhoto = filter_input(INPUT_POST, "idPhoto");
 $idCoordonnees = filter_input(INPUT_POST, "idCoordonnees");
@@ -13,6 +11,134 @@ $addresse = filter_input(INPUT_POST, "cAddresse");
 $email = filter_input(INPUT_POST, "cEmail");
 $tel = filter_input(INPUT_POST, "cTel");
 $url = filter_input(INPUT_POST, "cUrl");
+
+try {
+
+    // Undefined | Multiple Files | $_FILES Corruption Attack
+    // If this request falls under any of them, treat it invalid.
+    if (
+        !isset($_FILES['ePhoto']['error']) ||
+        is_array($_FILES['ePhoto']['error'])
+    ) {
+        throw new RuntimeException('Invalid parameters.');
+    }
+
+    // Check $_FILES['upfile']['error'] value.
+    switch ($_FILES['ePhoto']['error']) {
+        case UPLOAD_ERR_OK:
+            break;
+        case UPLOAD_ERR_NO_FILE:
+            throw new RuntimeException('No file sent.');
+        case UPLOAD_ERR_INI_SIZE:
+        case UPLOAD_ERR_FORM_SIZE:
+            throw new RuntimeException('Exceeded filesize limit.');
+        default:
+            throw new RuntimeException('Unknown errors.');
+    }
+
+    // You should also check filesize here.
+    if ($_FILES['ePhoto']['size'] > 5000000) {
+        throw new RuntimeException('Exceeded filesize limit.');
+    }
+
+    // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+    // Check MIME Type by yourself.
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    if (false === $ext = array_search(
+        $finfo->file($_FILES['ePhoto']['tmp_name']),
+        array(
+            'jpg' => 'image/jpeg',
+            'png' => 'image/png',
+            'gif' => 'image/gif',
+        ),
+        true
+    )) {
+        throw new RuntimeException('Invalid file format.');
+    }
+    $nomPhoto = sha1_file($_FILES['ePhoto']['tmp_name']);
+    // You should name it uniquely.
+    // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
+    // On this example, obtain safe unique name from its binary data.
+    if (!move_uploaded_file(
+        $_FILES['ePhoto']['tmp_name'],
+        sprintf(__DIR__.'/../../photos/brand_pictures/%s.%s',
+            $nomPhoto,
+            $ext
+        )
+    )) {
+        throw new RuntimeException('Failed to move uploaded file.');
+    }
+    echo 'File is uploaded successfully.';
+}
+catch (RuntimeException $e) {
+    echo $e->getMessage();
+}
+$point = ".";
+$nomPhoto= $nomPhoto . $point . $ext;
+
+//script pour logo
+try {
+
+  // Undefined | Multiple Files | $_FILES Corruption Attack
+  // If this request falls under any of them, treat it invalid.
+  if (
+      !isset($_FILES['eLogo']['error']) ||
+      is_array($_FILES['eLogo']['error'])
+  ) {
+      throw new RuntimeException('Invalid parameters.');
+  }
+
+  // Check $_FILES['upfile']['error'] value.
+  switch ($_FILES['eLogo']['error']) {
+      case UPLOAD_ERR_OK:
+          break;
+      case UPLOAD_ERR_NO_FILE:
+          throw new RuntimeException('No file sent.');
+      case UPLOAD_ERR_INI_SIZE:
+      case UPLOAD_ERR_FORM_SIZE:
+          throw new RuntimeException('Exceeded filesize limit.');
+      default:
+          throw new RuntimeException('Unknown errors.');
+  }
+
+  // You should also check filesize here.
+  if ($_FILES['eLogo']['size'] > 5000000) {
+      throw new RuntimeException('Exceeded filesize limit.');
+  }
+
+  // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+  // Check MIME Type by yourself.
+  $finfo = new finfo(FILEINFO_MIME_TYPE);
+  if (false === $ext = array_search(
+      $finfo->file($_FILES['eLogo']['tmp_name']),
+      array(
+          'jpg' => 'image/jpeg',
+          'png' => 'image/png',
+          'gif' => 'image/gif',
+      ),
+      true
+  )) {
+      throw new RuntimeException('Invalid file format.');
+  }
+  $nomLogoEntreprise = sha1_file($_FILES['eLogo']['tmp_name']);
+  // You should name it uniquely.
+  // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
+  // On this example, obtain safe unique name from its binary data.
+  if (!move_uploaded_file(
+      $_FILES['eLogo']['tmp_name'],
+      sprintf(__DIR__.'/../../photos/brand_logos/%s.%s',
+          $nomLogoEntreprise,
+          $ext
+      )
+  )) {
+      throw new RuntimeException('Failed to move uploaded file.');
+  }
+  echo 'File is uploaded successfully.';
+}
+catch (RuntimeException $e) {
+    echo $e->getMessage();
+}
+$nomLogoEntreprise= $nomLogoEntreprise . $point . $ext;
 
 require_once '../../config/config.php';
 

@@ -34,7 +34,7 @@ try {
     }
 
     // You should also check filesize here.
-    if ($_FILES['ePhoto']['size'] > 1000000) {
+    if ($_FILES['ePhoto']['size'] > 5000000) {
         throw new RuntimeException('Exceeded filesize limit.');
     }
 
@@ -99,7 +99,7 @@ try {
   }
 
   // You should also check filesize here.
-  if ($_FILES['eLogo']['size'] > 1000000) {
+  if ($_FILES['eLogo']['size'] > 5000000) {
       throw new RuntimeException('Exceeded filesize limit.');
   }
 
