@@ -23,7 +23,7 @@ $brands = $result->fetch();
           <form class="col s12" action="/assolaface/admin/actions/enterprise_edit.php" method="POST">
             <div class="row">
               <div class="input-field col s6">
-                <input id="enterprise_name" type="text" class="validate" name="eName" value="<?php echo $brands["nomEntreprise"] ?>">
+                <input id="enterprise_name" type="text" class="validate" name="eName" required value="<?php echo $brands["nomEntreprise"] ?>">
                 <label for="enterprise_name">Nom de l'entreprise</label>
               </div>
               <div class="input-field col s6">
@@ -52,13 +52,13 @@ $brands = $result->fetch();
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="enterprise_description" class="materialize-textarea" name="eDescription" maxlength="200"><?php echo $brands["descriptionEntreprise"] ?></textarea>
+                <textarea id="enterprise_description" class="materialize-textarea" required name="eDescription" maxlength="200"><?php echo $brands["descriptionEntreprise"] ?></textarea>
                 <label for="enterprise_description">Description de l'entreprise</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="enterprise_url" class="materialize-textarea" name="cUrl"><?php echo $brands["urlSiteRedirectionCarte"] ?></textarea>
+                <textarea id="enterprise_url" class="materialize-textarea" required name="cUrl"><?php echo $brands["urlSiteRedirectionCarte"] ?></textarea>
                 <label for="enterprise_url">Url pour redirection de la carte</label>
               </div>
             </div>
@@ -73,7 +73,7 @@ $brands = $result->fetch();
                     <input type="file">
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" name="pName" value="<?php echo $brands["nomPhoto"] ?>">
+                  <input class="file-path validate" type="text" required name="pName" value="<?php echo $brands["nomPhoto"] ?>">
                 </div>
               </div>
             </div>

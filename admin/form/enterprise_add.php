@@ -9,7 +9,7 @@ include '../../modal/header.php';
           <form class="col s12" action="/assolaface/admin/actions/enterprise_add.php" method="POST">
             <div class="row">
               <div class="input-field col s6">
-                <input id="enterprise_name" type="text" class="validate" name="eName">
+                <input id="enterprise_name" type="text" class="validate" required name="eName">
                 <label for="enterprise_name">Nom de l'entreprise</label>
               </div>
               <div class="input-field col s6">
@@ -38,13 +38,13 @@ include '../../modal/header.php';
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="enterprise_url" class="materialize-textarea" name="cUrl"></textarea>
+                <textarea id="enterprise_url" class="materialize-textarea" required name="cUrl"></textarea>
                 <label for="enterprise_url">Url pour redirection de la carte</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="enterprise_description" class="materialize-textarea" name="eDescription" maxlength="200"></textarea>
+                <textarea id="enterprise_description" class="materialize-textarea" required name="eDescription" maxlength="200"></textarea>
                 <label for="enterprise_description">Description de l'entreprise</label>
               </div>
             </div>
@@ -55,7 +55,7 @@ include '../../modal/header.php';
                     <input type="file">
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" name="pName" value="">
+                  <input class="file-path validate" type="text" required name="pName" value="">
                 </div>
               </div>
             </div>
