@@ -7,7 +7,7 @@ include '../../modal/header.php';
 $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
-$sql_query = "SELECT e.nomEntreprise, e.domaineEntreprise, c.email, a.nomAdherent, a.prenomAdherent
+$sql_query = "SELECT e.nomEntreprise, e.domaineEntreprise, c.email, a.nomAdherent, a.prenomAdherent, a.idAdherent
 FROM entreprise e JOIN adherent a on a.photo_idPhoto=e.idEntreprise JOIN coordonnees c on c.entreprise_idEntreprise=e.idEntreprise ORDER BY a.prenomAdherent ASC";
 
 $result = $db->prepare($sql_query);
@@ -36,8 +36,8 @@ $members = $result->fetchAll();
               <td><?php echo $line["email"] ?></td>
               <td><?php echo $line["nomEntreprise"] ?></td>
               <td><?php echo $line["domaineEntreprise"] ?></td>
-              <td><a href="/assolaface/admin/form/member_edit.php" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
-                  <a href="/assolaface/admin/actions/member_delete.php" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+              <td><a href="/assolaface/admin/form/member_edit.php?idAdherent=<?php echo $line["idAdherent"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
+                  <a href="/assolaface/admin/actions/member_delete.php?idAdherent=<?php echo $line["idAdherent"] ?>" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>
             <tr>
