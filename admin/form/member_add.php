@@ -8,8 +8,7 @@ $idAdherent= filter_input(INPUT_GET, "idAdherent");
 $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
-$sql_query_enterprise = "SELECT e.nomEntreprise, e.idEntreprise
-FROM adherent a JOIN entreprise e on e.idEntreprise=a.photo_idPhoto";
+$sql_query_enterprise = "SELECT e.nomEntreprise, e.idEntreprise FROM entreprise e";
 
 $result_2 = $db->prepare($sql_query_enterprise);
 $result_2->execute();
