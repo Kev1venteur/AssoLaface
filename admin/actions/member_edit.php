@@ -11,13 +11,13 @@ require_once '../../config/config.php';
 $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
-$sql_query = "update adherent set nomAdherent=:nomAdherent, prenomAdherent=:prenomAdherent, photo_idPhoto=:photo_idPhoto where idAdherent=:idAdherent";
+$sql_query = "update adherent set nomAdherent=:nomAdherent, prenomAdherent=:prenomAdherent, photo_idPhoto=(select idPhoto from photo where entreprise_idEntreprise=:idEntreprise), adherent_idEntreprise=:idEntreprise where idAdherent=:idAdherent";
 
 $result = $db->prepare($sql_query);
 
 $result->bindParam(":nomAdherent", $nomAdherent);
 $result->bindParam(":prenomAdherent", $prenomAdherent);
-$result->bindParam(":photo_idPhoto", $idPhoto);
+$result->bindParam(":idEntreprise", $idPhoto);
 $result->bindParam(":idAdherent", $idAdherent);
 
 $result->execute();
