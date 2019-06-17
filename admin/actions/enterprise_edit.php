@@ -165,6 +165,7 @@ try {
         throw new RuntimeException('Failed to move uploaded file.');
     }
     echo 'File is uploaded successfully.';
+    $point = ".";
     $nomLogoEntreprise= $nomLogoEntreprise . $point . $ext;
   }
   else {
