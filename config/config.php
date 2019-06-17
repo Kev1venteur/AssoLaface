@@ -2,9 +2,9 @@
 
 class Config {
   const DB_SERVER="localhost";
-  const DB_NAME="assolaface";
-  const DB_USERNAME="assolaface";
-  const DB_PASSWORD="lafacefroidfond";
+  const DB_NAME="laface";
+  const DB_USERNAME="laface";
+  const DB_PASSWORD="Lafacefroidfond1";
 }
 
 define('DB_SERVER', 'localhost');

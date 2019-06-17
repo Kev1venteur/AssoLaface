@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 include '../modal/header.php'; ?>
   <main>
     <div class="id-form">
-      <p>Rentrez vos identifiant pour vous connecter.</p>
+      <p>Rentrez vos identifiants pour vous connecter.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
           <label>Utilisateur</label>
