@@ -5,7 +5,7 @@ $db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
 , Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
 $sql_query = "SELECT e.nomEntreprise, e.domaineEntreprise, c.email, a.nomAdherent, a.prenomAdherent
-FROM entreprise e JOIN adherent a on a.photo_idPhoto=e.idEntreprise JOIN coordonnees c on c.entreprise_idEntreprise=e.idEntreprise ORDER BY a.prenomAdherent ASC";
+FROM entreprise e JOIN adherent a on a.adherent_idEntreprise=e.idEntreprise JOIN coordonnees c on c.entreprise_idEntreprise=e.idEntreprise ORDER BY a.prenomAdherent ASC";
 
 $result = $db->prepare($sql_query);
 $result->execute();
