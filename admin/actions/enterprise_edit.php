@@ -12,19 +12,115 @@ $email = filter_input(INPUT_POST, "cEmail");
 $tel = filter_input(INPUT_POST, "cTel");
 $url = filter_input(INPUT_POST, "cUrl");
 
-try {
+require_once '../../config/config.php';
 
+$db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
+, Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+$sql_query = "SELECT nomPhoto from photo where entreprise_idEntreprise=:idEntreprise";
+
+$result = $db->prepare($sql_query);
+$result->bindparam(":idEntreprise", $idEntreprise);
+$result->execute();
+$nomPhotoBase = $result->fetch();
+$nomPhotoBase = $nomPhotoBase["nomPhoto"];
+
+
+try {
+    $nomPhotoCompare = filter_input(INPUT_POST, "pName");
+    if ($nomPhotoCompare != $nomPhotoBase){
+      echo "1";
+      // Undefined | Multiple Files | $_FILES Corruption Attack
+      // If this request falls under any of them, treat it invalid.
+      if (
+          !isset($_FILES['ePhoto']['error']) ||
+          is_array($_FILES['ePhoto']['error'])
+      ) {
+          throw new RuntimeException('Invalid parameters.');
+      }
+
+      // Check $_FILES['upfile']['error'] value.
+      switch ($_FILES['ePhoto']['error']) {
+          case UPLOAD_ERR_OK:
+              break;
+          case UPLOAD_ERR_NO_FILE:
+              throw new RuntimeException('No file sent.');
+          case UPLOAD_ERR_INI_SIZE:
+          case UPLOAD_ERR_FORM_SIZE:
+              throw new RuntimeException('Exceeded filesize limit.');
+          default:
+              throw new RuntimeException('Unknown errors.');
+      }
+
+      // You should also check filesize here.
+      if ($_FILES['ePhoto']['size'] > 5000000) {
+          throw new RuntimeException('Exceeded filesize limit.');
+      }
+
+      // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
+      // Check MIME Type by yourself.
+      $finfo = new finfo(FILEINFO_MIME_TYPE);
+      if (false === $ext = array_search(
+          $finfo->file($_FILES['ePhoto']['tmp_name']),
+          array(
+              'jpg' => 'image/jpeg',
+              'png' => 'image/png',
+              'gif' => 'image/gif',
+          ),
+          true
+      )) {
+          throw new RuntimeException('Invalid file format.');
+      }
+      $nomPhoto = sha1_file($_FILES['ePhoto']['tmp_name']);
+      // You should name it uniquely.
+      // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
+      // On this example, obtain safe unique name from its binary data.
+      if (!move_uploaded_file(
+          $_FILES['ePhoto']['tmp_name'],
+          sprintf(__DIR__.'/../../photos/brand_pictures/%s.%s',
+              $nomPhoto,
+              $ext
+          )
+      )) {
+          throw new RuntimeException('Failed to move uploaded file.');
+      }
+      echo 'File is uploaded successfully.';
+      $point = ".";
+      $nomPhoto= $nomPhoto . $point . $ext;
+    }
+    else {
+      $nomPhoto= $nomPhotoBase;
+      echo "2";
+    }
+}
+catch (RuntimeException $e) {
+    echo $e->getMessage();
+}
+
+
+$sql_query = "SELECT nomLogoEntreprise from entreprise where idEntreprise=:idEntreprise";
+
+$result = $db->prepare($sql_query);
+$result->bindparam(":idEntreprise", $idEntreprise);
+$result->execute();
+$nomLogoBase = $result->fetch();
+$nomLogoBase = $nomLogoBase["nomLogoEntreprise"];
+
+//script pour logo
+try {
+  $nomLogoCompare = filter_input(INPUT_POST, "eLogoName");
+  if ($nomLogoCompare != $nomLogoBase){
     // Undefined | Multiple Files | $_FILES Corruption Attack
     // If this request falls under any of them, treat it invalid.
     if (
-        !isset($_FILES['ePhoto']['error']) ||
-        is_array($_FILES['ePhoto']['error'])
+        !isset($_FILES['eLogo']['error']) ||
+        is_array($_FILES['eLogo']['error'])
     ) {
         throw new RuntimeException('Invalid parameters.');
     }
 
     // Check $_FILES['upfile']['error'] value.
-    switch ($_FILES['ePhoto']['error']) {
+    switch ($_FILES['eLogo']['error']) {
         case UPLOAD_ERR_OK:
             break;
         case UPLOAD_ERR_NO_FILE:
@@ -37,7 +133,7 @@ try {
     }
 
     // You should also check filesize here.
-    if ($_FILES['ePhoto']['size'] > 5000000) {
+    if ($_FILES['eLogo']['size'] > 5000000) {
         throw new RuntimeException('Exceeded filesize limit.');
     }
 
@@ -45,7 +141,7 @@ try {
     // Check MIME Type by yourself.
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     if (false === $ext = array_search(
-        $finfo->file($_FILES['ePhoto']['tmp_name']),
+        $finfo->file($_FILES['eLogo']['tmp_name']),
         array(
             'jpg' => 'image/jpeg',
             'png' => 'image/png',
@@ -55,95 +151,29 @@ try {
     )) {
         throw new RuntimeException('Invalid file format.');
     }
-    $nomPhoto = sha1_file($_FILES['ePhoto']['tmp_name']);
+    $nomLogoEntreprise = sha1_file($_FILES['eLogo']['tmp_name']);
     // You should name it uniquely.
     // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
     // On this example, obtain safe unique name from its binary data.
     if (!move_uploaded_file(
-        $_FILES['ePhoto']['tmp_name'],
-        sprintf(__DIR__.'/../../photos/brand_pictures/%s.%s',
-            $nomPhoto,
+        $_FILES['eLogo']['tmp_name'],
+        sprintf(__DIR__.'/../../photos/brand_logos/%s.%s',
+            $nomLogoEntreprise,
             $ext
         )
     )) {
         throw new RuntimeException('Failed to move uploaded file.');
     }
     echo 'File is uploaded successfully.';
+    $nomLogoEntreprise= $nomLogoEntreprise . $point . $ext;
+  }
+  else {
+    $nomLogoEntreprise= $nomLogoBase;
+  }
 }
 catch (RuntimeException $e) {
     echo $e->getMessage();
 }
-$point = ".";
-$nomPhoto= $nomPhoto . $point . $ext;
-
-//script pour logo
-try {
-
-  // Undefined | Multiple Files | $_FILES Corruption Attack
-  // If this request falls under any of them, treat it invalid.
-  if (
-      !isset($_FILES['eLogo']['error']) ||
-      is_array($_FILES['eLogo']['error'])
-  ) {
-      throw new RuntimeException('Invalid parameters.');
-  }
-
-  // Check $_FILES['upfile']['error'] value.
-  switch ($_FILES['eLogo']['error']) {
-      case UPLOAD_ERR_OK:
-          break;
-      case UPLOAD_ERR_NO_FILE:
-          throw new RuntimeException('No file sent.');
-      case UPLOAD_ERR_INI_SIZE:
-      case UPLOAD_ERR_FORM_SIZE:
-          throw new RuntimeException('Exceeded filesize limit.');
-      default:
-          throw new RuntimeException('Unknown errors.');
-  }
-
-  // You should also check filesize here.
-  if ($_FILES['eLogo']['size'] > 5000000) {
-      throw new RuntimeException('Exceeded filesize limit.');
-  }
-
-  // DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
-  // Check MIME Type by yourself.
-  $finfo = new finfo(FILEINFO_MIME_TYPE);
-  if (false === $ext = array_search(
-      $finfo->file($_FILES['eLogo']['tmp_name']),
-      array(
-          'jpg' => 'image/jpeg',
-          'png' => 'image/png',
-          'gif' => 'image/gif',
-      ),
-      true
-  )) {
-      throw new RuntimeException('Invalid file format.');
-  }
-  $nomLogoEntreprise = sha1_file($_FILES['eLogo']['tmp_name']);
-  // You should name it uniquely.
-  // DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
-  // On this example, obtain safe unique name from its binary data.
-  if (!move_uploaded_file(
-      $_FILES['eLogo']['tmp_name'],
-      sprintf(__DIR__.'/../../photos/brand_logos/%s.%s',
-          $nomLogoEntreprise,
-          $ext
-      )
-  )) {
-      throw new RuntimeException('Failed to move uploaded file.');
-  }
-  echo 'File is uploaded successfully.';
-}
-catch (RuntimeException $e) {
-    echo $e->getMessage();
-}
-$nomLogoEntreprise= $nomLogoEntreprise . $point . $ext;
-
-require_once '../../config/config.php';
-
-$db = new PDO("mysql:host=" . Config::DB_SERVER . ";dbname=" . Config::DB_NAME
-, Config::DB_USERNAME, Config::DB_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 
 $sql_query_brand = "update entreprise set nomEntreprise=:nomEntreprise, domaineEntreprise=:domaineEntreprise, descriptionEntreprise=:descriptionEntreprise, nomLogoEntreprise=:nomLogoEntreprise where idEntreprise=:idEntreprise";
 $sql_query_photo = "update photo set nomPhoto=:nomPhoto where idPhoto=:idPhoto";
