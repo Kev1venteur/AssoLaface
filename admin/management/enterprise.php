@@ -30,7 +30,7 @@ $brands = $result->fetchAll();
             <tr>
               <td><?php echo $line["nomEntreprise"] ?></td>
               <td><?php echo $line["domaineEntreprise"] ?></td>
-              <td><a href="/admin/form/enterprise_edit.php?idEntreprise=<?php echo $line["idEntreprise"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
+              <td><a href="/admin/form/enterprise_edit.php?idEntreprise=<?php echo $line["idEntreprise"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href="/admin/actions/enterprise_delete.php?idEntreprise=<?php echo $line["idEntreprise"] ?>" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>

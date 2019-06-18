@@ -36,7 +36,7 @@ $members = $result->fetchAll();
               <td><?php echo $line["email"] ?></td>
               <td><?php echo $line["nomEntreprise"] ?></td>
               <td><?php echo $line["domaineEntreprise"] ?></td>
-              <td><a href="/admin/form/member_edit.php?idAdherent=<?php echo $line["idAdherent"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;
+              <td><a href="/admin/form/member_edit.php?idAdherent=<?php echo $line["idAdherent"] ?>" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a href="/admin/actions/member_delete.php?idAdherent=<?php echo $line["idAdherent"] ?>" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>
