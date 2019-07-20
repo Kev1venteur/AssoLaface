@@ -16,30 +16,95 @@ $brand = $result->fetchAll();
         <?php include 'modal/sidenav.php'; ?>
         <div class="row">
           <?php foreach ($brand as $card){ ?>
-          <div id="modal<?php echo $card["idEntreprise"] ?>" class="modal">
-           <div class="modal-content">
-             <h4>Prendre Rendez-vous</h4>
-             <p>Tel: <?php echo $card["tel"] ?></p>
-             <p>Adresse: <?php echo $card["addresse"] ?></p>
-           </div>
-           <div class="modal-footer">
-             <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
-           </div>
-         </div>
-          <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image">
-                <img src="/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
-                <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
-                <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">phone</i></a>
-                <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
-              </div>
-              <div class="card-content">
-                <p>&emsp;<?php echo $card["descriptionEntreprise"] ?></p>
-              </div>
+            <div id="modal<?php echo $card["idEntreprise"] ?>" class="modal">
+             <div class="modal-content">
+               <h4>Prendre Rendez-vous</h4>
+               <p>Tel: <?php echo $card["tel"] ?></p>
+               <p>Adresse: <?php echo $card["addresse"] ?></p>
+             </div>
+             <div class="modal-footer">
+               <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+             </div>
             </div>
+          <?php } ?>
+          <div class="col s4 m4">
+            <?php $idcolonne=1; ?>
+            <?php foreach ($brand as $card){ ?>
+              <?php if ($idcolonne == 1){ ?>
+                <div class="card">
+                  <div class="card-image">
+                    <img src="/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
+                    <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
+                    <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">phone</i></a>
+                    <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
+                  </div>
+                  <div class="card-content">
+                    <p>&emsp;<?php echo $card["descriptionEntreprise"] ?></p>
+                  </div>
+                </div>
+              <?php } ?>
+              <?php
+                if ($idcolonne<3){
+                  $idcolonne = $idcolonne + 1;
+                }
+                else {
+                  $idcolonne = 1;
+                }
+              ?>
+            <?php } ?>
           </div>
-        <?php } ?>
+          <div class="col s4 m4">
+            <?php $idcolonne=1; ?>
+            <?php foreach ($brand as $card){ ?>
+              <?php if ($idcolonne == 2){ ?>
+                <div class="card">
+                  <div class="card-image">
+                    <img src="/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
+                    <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
+                    <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">phone</i></a>
+                    <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
+                  </div>
+                  <div class="card-content">
+                    <p>&emsp;<?php echo $card["descriptionEntreprise"] ?></p>
+                  </div>
+                </div>
+              <?php } ?>
+              <?php
+                if ($idcolonne<3){
+                  $idcolonne = $idcolonne + 1;
+                }
+                else {
+                  $idcolonne = 1;
+                }
+              ?>
+            <?php } ?>
+          </div>
+          <div class="col s4 m4">
+            <?php $idcolonne=1; ?>
+            <?php foreach ($brand as $card){ ?>
+              <?php if ($idcolonne == 3){ ?>
+                <div class="card">
+                  <div class="card-image">
+                    <img src="/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
+                    <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
+                    <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">phone</i></a>
+                    <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
+                  </div>
+                  <div class="card-content">
+                    <p>&emsp;<?php echo $card["descriptionEntreprise"] ?></p>
+                  </div>
+                </div>
+              <?php } ?>
+              <?php
+                if ($idcolonne<3){
+                  $idcolonne = $idcolonne + 1;
+                }
+                else {
+                  $idcolonne = 1;
+                }
+              ?>
+            <?php } ?>
+          </div>
         </div>
       </main>
 <?php include 'modal/footer.php'; ?>
