@@ -27,7 +27,7 @@ $brand = $result->fetchAll();
              </div>
             </div>
           <?php } ?>
-          <div class="col s4 m4">
+          <div class="col s4 m4 hide-on-small-only">
             <?php $idcolonne=1; ?>
             <?php foreach ($brand as $card){ ?>
               <?php if ($idcolonne == 1){ ?>
@@ -53,7 +53,7 @@ $brand = $result->fetchAll();
               ?>
             <?php } ?>
           </div>
-          <div class="col s4 m4">
+          <div class="col s4 m4 hide-on-small-only">
             <?php $idcolonne=1; ?>
             <?php foreach ($brand as $card){ ?>
               <?php if ($idcolonne == 2){ ?>
@@ -79,7 +79,7 @@ $brand = $result->fetchAll();
               ?>
             <?php } ?>
           </div>
-          <div class="col s4 m4">
+          <div class="col s4 m4 hide-on-small-only">
             <?php $idcolonne=1; ?>
             <?php foreach ($brand as $card){ ?>
               <?php if ($idcolonne == 3){ ?>
@@ -103,6 +103,21 @@ $brand = $result->fetchAll();
                   $idcolonne = 1;
                 }
               ?>
+            <?php } ?>
+          </div>
+          <div class="col s12 m4 hide-on-med-and-up">
+            <?php foreach ($brand as $card){ ?>
+              <div class="card">
+                <div class="card-image">
+                  <img src="/photos/brand_pictures/<?php echo $card["nomPhoto"] ?>">
+                  <span class="card-title orange-text"><b><?php echo $card["nomEntreprise"] ?> <?php echo $card["domaineEntreprise"] ?></b></span>
+                  <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger left" href="#modal<?php echo $card["idEntreprise"] ?>"><i class="material-icons">phone</i></a>
+                  <a href="<?php echo $card["urlSiteRedirectionCarte"] ?>" class="btn-floating halfway-fab waves-effect waves-light red" target="_blank"><i class="material-icons">chevron_right</i></a>
+                </div>
+                <div class="card-content">
+                  <p>&emsp;<?php echo $card["descriptionEntreprise"] ?></p>
+                </div>
+              </div>
             <?php } ?>
           </div>
         </div>
