@@ -1,4 +1,4 @@
-# assolLaFace
+# AssolLaFace
 This repository contains the code of the LAFACE Website. Produced in 2019.  
 It is a simple showcase site to present the craftsmen of Froidfond being part of the association, with all their contact details.
 
